@@ -1,10 +1,1 @@
-console.log('Hello World!');
-
-
-var json;
-
-
-
-var salkdjf; 
-
-
+console.log('Hot loading goodness!');
