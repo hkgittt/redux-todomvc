@@ -4,7 +4,7 @@ module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:8080', // Setting the URL for the hot reload
     'webpack/hot/only-dev-server', // Reload only the dev server
-    './src/index.js',
+    './src/index.jsx',
   ],
   module: {
     loaders: [{
