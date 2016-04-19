@@ -23,19 +23,6 @@ export default class TodoList extends Component {
   }
 }
 
-// const TodoList = (props) => (
-//       <section className="main">
-//         <ul className="todo-list">
-//           {props.todos.map(item => (
-//             <TodoItem
-//               key={item.get('id')}
-//               text={item.get('text')}
-//             />
-//           ))}
-//         </ul>
-//       </section>
-// );
-
 TodoList.propTypes = {
   todos: PropTypes.object,
 };
@@ -43,5 +30,3 @@ TodoList.propTypes = {
 TodoList.defaultProps = {
   todos: [],
 };
-
-// export default TodoList;

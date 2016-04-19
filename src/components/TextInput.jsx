@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PureRenderMixin from 'react-addons-pure-render-mixin';
 
-const TextInput = () => (
-  <input type="text" className="edit" autoFocus="{true}" />
-);
-
-export default TextInput;
+export default class TextInput extends Component {
+  constructor(props) {
+    super(props);
+    this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+  }
+  render() {
+    return (
+      <input type="text" className="edit" autoFocus="{true}" />
+    );
+  }
+}
