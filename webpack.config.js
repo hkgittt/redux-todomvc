@@ -11,6 +11,9 @@ module.exports = {
       test: /\.jsx?$/,
       exclude: /node_modules/,
       loader: 'react-hot!babel',
+    }, {
+      test: /\.css$/,
+      loader: 'style!css',
     }],
   },
   resolve: {
@@ -24,6 +27,7 @@ module.exports = {
   devServer: {
     contentBase: './dist',
   },
+  devtool: 'cheap-module-source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
   ],

@@ -12,6 +12,8 @@ const todos = List.of(
 
 console.log(todos.toString());
 
+import '../node_modules/todomvc-app-css/index.css';
+
 ReactDOM.render(
   <TodoApp todos={todos} />,
   document.getElementById('app')
