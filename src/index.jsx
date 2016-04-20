@@ -10,11 +10,11 @@ const todos = List.of(
   Map({ id: 3, text: 'Immutable', status: 'completed', editing: false })
 );
 
-console.log(todos.toString());
+const filter = 'all';
 
 import '../node_modules/todomvc-app-css/index.css';
 
 ReactDOM.render(
-  <TodoApp todos={todos} />,
+  <TodoApp todos={todos} filter={filter} />,
   document.getElementById('app')
 );
