@@ -3,6 +3,8 @@ import TodoList from './TodoList';
 import TodoHeader from './TodoHeader';
 import TodoTools from './TodoTools';
 import Footer from './Footer';
+import { connect } from 'react-redux';
+import * as actionCreators from '../action_creators';
 
 export default class TodoApp extends Component {
   constructor(props) {
@@ -22,7 +24,9 @@ export default class TodoApp extends Component {
     return (
       <div>
         <section className="todoapp">
-          <TodoHeader />
+          <TodoHeader
+            addItem={this.props.addItem}
+          />
           <TodoList
             {...this.props}
           />
@@ -30,6 +34,8 @@ export default class TodoApp extends Component {
         <TodoTools
           filter={this.props.filter}
           nbActiveItems={this.getNbActiveItems()}
+          changeFilter={this.props.changeFilter}
+          clearCompleted={this.props.clearCompleted}
         />
         <Footer />
       </div>
@@ -40,6 +46,9 @@ export default class TodoApp extends Component {
 TodoApp.propTypes = {
   todos: PropTypes.object,
   filter: PropTypes.string,
+  changeFilter: PropTypes.func,
+  clearCompleted: PropTypes.func,
+  addItem: PropTypes.func,
 };
 
 TodoApp.defaultProps = {
@@ -47,4 +56,11 @@ TodoApp.defaultProps = {
   filter: 'all',
 };
 
-export default TodoApp;
+function mapStateToProps(state) {
+  return {
+    todos: state.get('todos'),
+    filter: state.get('filter'),
+  };
+}
+
+export const TodoAppContainer = connect(mapStateToProps, actionCreators)(TodoApp);

@@ -48,7 +48,7 @@ export default class TodoTools extends Component {
         </ul>
         <button
           className="clear-completed"
-          onClick={this.props.clearCompleted}
+          onClick={() => this.props.clearCompleted()}
         >
           Clear completed
         </button>

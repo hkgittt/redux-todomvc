@@ -20,7 +20,7 @@ export default class TextInput extends Component {
   handleKeyDown(e) {
     switch (e.key) {
       case 'Enter':
-        this.props.doneEditing();
+        this.props.doneEditing(this.props.itemId, e.target.value);
         break;
       case 'Escape':
         this.cancelEditing();

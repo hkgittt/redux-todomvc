@@ -20,9 +20,15 @@ export default class TodoList extends Component {
           {this.getFilteredItems().map(item => (
             <TodoItem
               key={item.get('id')}
+              id={item.get('id')}
               text={item.get('text')}
               isCompleted={item.get('status') === 'completed'}
               isEditing={item.get('editing')}
+              toggleComplete={this.props.toggleComplete}
+              editItem={this.props.editItem}
+              cancelEditing={this.props.cancelEditing}
+              doneEditing={this.props.doneEditing}
+              deleteItem={this.props.deleteItem}
             />
           ))}
         </ul>
@@ -34,6 +40,11 @@ export default class TodoList extends Component {
 TodoList.propTypes = {
   todos: PropTypes.object,
   filter: PropTypes.string,
+  toggleComplete: PropTypes.func,
+  editItem: PropTypes.func,
+  cancelEditing: PropTypes.func,
+  doneEditing: PropTypes.func,
+  deleteItem: PropTypes.func,
 };
 
 TodoList.defaultProps = {
